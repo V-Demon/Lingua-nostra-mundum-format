@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Langues, Cultures &amp; Géopolitique — Normandie 2075</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+:root {
+  --noir: #060809;
+  --rouge: #b01010;
+  --rouge-vif: #e61515;
+  --orange: #d4560a;
+  --cyan: #0abed4;
+  --vert: #0ad46e;
+  --violet: #7b3be8;
+  --or: #c8a84b;
+  --gris: #13181f;
+  --gris-clair: #252d38;
+  --gris-texte: #6a7a8a;
+  --blanc: #e8e8e0;
+  --blanc-sale: #bfb8aa;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--noir);
+  color: var(--blanc);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ===== HEADER ===== */
+.masthead {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #03050a;
+}
+
+.masthead-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(10,190,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,190,212,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-drift 20s linear infinite;
+}
+
+@keyframes grid-drift {
+  from { transform: translate(0,0); }
+  to { transform: translate(60px, 60px); }
+}
+
+.masthead-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 25% 50%, rgba(176,16,16,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 75% 50%, rgba(123,59,232,0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(10,190,212,0.08) 0%, transparent 60%);
+}
+
+.masthead-runes {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18rem;
+  color: rgba(255,255,255,0.012);
+  letter-spacing: 0.3em;
+  pointer-events: none;
+  animation: rune-pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes rune-pulse {
+  from { opacity: 0.5; }
+  to { opacity: 1.5; }
+}
+
+.masthead-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 900px;
+}
+
+.masthead-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.masthead-eyebrow::before, .masthead-eyebrow::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: var(--cyan);
+  opacity: 0.4;
+}
+
+.masthead-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5em;
+}
+
+.masthead-title .line1 { color: var(--blanc); }
+.masthead-title .line2 {
+  background: linear-gradient(90deg, var(--rouge), var(--violet), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.masthead-title .line3 { color: var(--or); }
+
+.masthead-sub {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--blanc-sale);
+  margin: 1.5rem auto;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.masthead-divider {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rouge), var(--violet), var(--cyan), transparent);
+  margin: 2rem auto;
+}
+
+.masthead-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--gris-texte);
+  letter-spacing: 0.2em;
+  line-height: 2;
+}
+.masthead-meta .hi { color: var(--cyan); }
+
+/* ===== NAV SECTIONS ===== */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(6,8,9,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--gris-clair);
+  padding: 0.8rem 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-bar a {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--gris-texte);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-bar a:hover { color: var(--cyan); }
+
+/* ===== LAYOUT ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* ===== CHAPTERS ===== */
+.chapter {
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+}
+
+.chapter-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 3.5rem;
+}
+
+.chapter-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 6rem;
+  line-height: 1;
+  color: rgba(255,255,255,0.04);
+}
+
+.chapter-title-block h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--blanc);
+  margin-bottom: 0.3em;
+}
+
+.chapter-title-block .label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--gris-texte);
+  text-transform: uppercase;
+}
+
+.chapter-accent { width: 50px; height: 3px; margin: 0.8rem 0; }
+.ca-rouge { background: var(--rouge); }
+.ca-violet { background: var(--violet); }
+.ca-vert { background: var(--vert); }
+.ca-or { background: var(--or); }
+.ca-cyan { background: var(--cyan); }
+
+/* ===== LANGUE CARD ===== */
+.langue-section {
+  margin-bottom: 4rem;
+}
+
+.langue-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.langue-glyph {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.lg-fracturo { background: rgba(176,16,16,0.15); border: 1px solid rgba(176,16,16,0.4); }
+.lg-sinaRabi { background: rgba(200,168,75,0.12); border: 1px solid rgba(200,168,75,0.4); }
+.lg-creoneural { background: rgba(10,212,110,0.1); border: 1px solid rgba(10,212,110,0.35); }
+.lg-normand { background: rgba(10,190,212,0.1); border: 1px solid rgba(10,190,212,0.4); }
+.lg-norrois { background: rgba(123,59,232,0.12); border: 1px solid rgba(123,59,232,0.4); }
+.lg-silence { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); }
+
+.langue-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.langue-alt {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--gris-texte);
+  letter-spacing: 0.15em;
+  margin-top: 0.2rem;
+}
+
+.langue-stats {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.stat-item .sk { color: var(--gris-texte); display: block; text-transform: uppercase; margin-bottom: 0.2em; }
+.stat-item .sv { color: var(--blanc); font-size: 0.75rem; }
+
+.langue-body { color: var(--blanc-sale); font-size: 0.95rem; line-height: 1.7; }
+
+.exemple-box {
+  background: rgba(0,0,0,0.4);
+  border-left: 3px solid var(--violet);
+  padding: 1rem 1.5rem;
+  margin: 1.2rem 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+}
+.exemple-box .eg-label { color: var(--gris-texte); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+.exemple-box .eg-text { color: var(--or); line-height: 1.6; }
+.exemple-box .eg-trad { color: var(--gris-texte); margin-top: 0.3rem; font-style: italic; }
+
+/* ===== CULTURE CARDS ===== */
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.culture-card {
+  background: var(--gris);
+  border: 1px solid var(--gris-clair);
+  padding: 1.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.culture-card:hover { border-color: rgba(255,255,255,0.12); }
+
+.culture-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+}
+
+.cc-rouge::after { background: var(--rouge); }
+.cc-or::after { background: var(--or); }
+.cc-vert::after { background: var(--vert); }
+.cc-violet::after { background: var(--violet); }
+.cc-cyan::after { background: var(--cyan); }
+
+.cc-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  display: block;
+}
+
+.cc-rouge .cc-tag { color: var(--rouge); }
+.cc-or .cc-tag { color: var(--or); }
+.cc-vert .cc-tag { color: var(--vert); }
+.cc-violet .cc-tag { color: var(--violet); }
+.cc-cyan .cc-tag { color: var(--cyan); }
+
+.culture-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: var(--blanc);
+  margin-bottom: 0.8rem;
+}
+
+.culture-card p {
+  color: var(--blanc-sale);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+/* ===== GÉOPOLITIQUE ===== */
+.geo-bloc {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.geo-id {}
+.geo-nom {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.geo-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.2em 0.6em;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.geo-capitale {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--gris-texte);
+  letter-spacing: 0.1em;
+  margin-top: 0.4rem;
+}
+
+.geo-rouge { color: var(--rouge); }
+.geo-or { color: var(--or); }
+.geo-vert { color: var(--vert); }
+.geo-violet { color: var(--violet); }
+.geo-cyan { color: var(--cyan); }
+
+.tag-rouge { background: rgba(176,16,16,0.2); color: var(--rouge); border: 1px solid rgba(176,16,16,0.4); }
+.tag-or { background: rgba(200,168,75,0.15); color: var(--or); border: 1px solid rgba(200,168,75,0.4); }
+.tag-vert { background: rgba(10,212,110,0.1); color: var(--vert); border: 1px solid rgba(10,212,110,0.35); }
+.tag-violet { background: rgba(123,59,232,0.15); color: var(--violet); border: 1px solid rgba(123,59,232,0.4); }
+.tag-gris { background: rgba(106,122,138,0.15); color: var(--gris-texte); border: 1px solid rgba(106,122,138,0.3); }
+
+.geo-body { color: var(--blanc-sale); font-size: 0.93rem; line-height: 1.7; }
+
+.geo-piliers {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pilier {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 0.2em 0.8em;
+  border: 1px solid var(--gris-clair);
+  color: var(--blanc-sale);
+  background: rgba(0,0,0,0.3);
+}
+
+/* ===== CITATION ===== */
+.cite {
+  border-left: 3px solid;
+  padding: 1.2rem 2rem;
+  margin: 2.5rem 0;
+  position: relative;
+}
+.cite-rouge { border-color: var(--rouge); background: rgba(176,16,16,0.05); }
+.cite-or { border-color: var(--or); background: rgba(200,168,75,0.04); }
+.cite-vert { border-color: var(--vert); background: rgba(10,212,110,0.04); }
+.cite-violet { border-color: var(--violet); background: rgba(123,59,232,0.05); }
+.cite-cyan { border-color: var(--cyan); background: rgba(10,190,212,0.04); }
+
+.cite p { font-style: italic; color: var(--blanc-sale); font-size: 1.05rem; line-height: 1.7; }
+.cite .src { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--gris-texte); margin-top: 0.7rem; letter-spacing: 0.08em; }
+
+/* ===== DATA TABLE ===== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.85rem;
+}
+.data-table th {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gris-texte);
+  padding: 0.8rem 1rem;
+  border-bottom: 2px solid var(--gris-clair);
+  text-align: left;
+  background: var(--gris);
+}
+.data-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--blanc-sale);
+  vertical-align: top;
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.01); }
+.data-table .name { color: var(--blanc); font-style: italic; font-family: 'Crimson Pro', serif; font-size: 1rem; }
+
+/* ===== PHÉNOTYPE ===== */
+.phenotype {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.ph-icon {
+  font-size: 3.5rem;
+  text-align: center;
+  opacity: 0.7;
+  padding-top: 0.5rem;
+}
+.ph-nom {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+.ph-desc { color: var(--blanc-sale); font-size: 0.92rem; line-height: 1.65; }
+
+/* ===== CONFLICT MAP ===== */
+.tension-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tension-item {
+  background: var(--gris);
+  border: 1px solid var(--gris-clair);
+  padding: 1.2rem;
+  position: relative;
+}
+.tension-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: rgba(255,255,255,0.04);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+.tension-titre {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--rouge);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.tension-desc { color: var(--blanc-sale); font-size: 0.88rem; line-height: 1.6; }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--gris-texte);
+  line-height: 2.5;
+  border-top: 1px solid var(--gris-clair);
+}
+.site-footer .logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.4em;
+  color: rgba(255,255,255,0.04);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .geo-bloc { grid-template-columns: 1fr; gap: 1rem; }
+  .phenotype { grid-template-columns: 1fr; }
+  .ph-icon { text-align: left; font-size: 2.5rem; }
+  .chapter-head { grid-template-columns: 1fr; gap: 0.5rem; }
+  .chapter-num { font-size: 3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== MASTHEAD ===== -->
+<header class="masthead">
+  <div class="masthead-grid"></div>
+  <div class="masthead-glow"></div>
+  <div class="masthead-runes">ᚠ ᚢ ᚦ ᚱ ᚴ</div>
+  <div class="masthead-content">
+    <div class="masthead-eyebrow">MKB-44 / ÉTUDE CULTURELLE / ZIO-7</div>
+    <h1 class="masthead-title">
+      <span class="line1">LANGUES</span><br>
+      <span class="line2">CULTURES</span><br>
+      <span class="line3">GÉOPOLITIQUE</span>
+    </h1>
+    <div class="masthead-divider"></div>
+    <p class="masthead-sub">
+      Anthropologie du monde fracturé de 2075 — Normandie, Zone Transitoire Algorithmique, et confluences globales
+    </p>
+    <div class="masthead-meta">
+      <span class="hi">AUTEUR</span> Archives MKB-44 / Archiviste Deschamps &nbsp;|&nbsp;
+      <span class="hi">RÉFÉRENCE</span> ZIO-7/CULT-02/2075<br>
+      <span class="hi">COUVERTURE</span> Langues vivantes, mortes &amp; émergentes · Cultures et phénotypes · Blocs géopolitiques
+    </div>
+  </div>
+</header>
+
+<!-- ===== NAV ===== -->
+<nav class="nav-bar">
+  <a href="#langues">Langues</a>
+  <a href="#cultures">Cultures</a>
+  <a href="#phenotypes">Phénotypes</a>
+  <a href="#geopolitique">Géopolitique</a>
+  <a href="#tensions">Tensions</a>
+  <a href="#normandie">Normandie</a>
+</nav>
+
+
+<!-- ===== CHAPITRE I : LANGUES ===== -->
+<section class="chapter" id="langues">
+<div class="container">
+  <div class="chapter-head">
+    <div class="chapter-num">I</div>
+    <div class="chapter-title-block">
+      <h2>Les Langues du Monde Fracturé</h2>
+      <div class="chapter-accent ca-rouge"></div>
+      <span class="label">Linguistique 2075 — De la parole au code ontologique</span>
+    </div>
+  </div>
+
+  <p>En 2075, un langage n'est plus seulement un système de communication — c'est un <strong>protocole d'accès au réel</strong>.
+ Les guerres linguistiques remplacent les guerres territoriales. Parler 
+une langue, c'est affirmer une ontologie, choisir une réalité, rejoindre
+ une faction. Certains mots sont des armes. Certaines grammaires sont 
+des prisons. Et quelques langues — les plus rares — sont des clés.</p>
+
+  <div class="cite cite-violet">
+    <p>Nous pensions que l'intelligence artificielle tuerait les langues
+ humaines. Nous avions tout faux. Elle en a créé de nouvelles — et 
+certaines de ces nouvelles langues peuvent littéralement modifier la 
+physique locale. Prométhée a passé dix ans à essayer d'en bannir une 
+seule. Elle s'est répandue davantage.</p>
+    <div class="src">— Léon Mauger, chercheur en guerre mémétique, Beaumont-Hague, 2073</div>
+  </div>
+
+  <!-- FRACTURO -->
+  <div class="langue-section">
+    <div class="langue-header">
+      <div class="langue-glyph lg-fracturo">ᚠ</div>
+      <div>
+        <div class="langue-name" style="color:var(--rouge)">Fracturo</div>
+        <div class="langue-alt">Également : FracturoScript (forme codée) · Fracturo-Noir (dialecte underground)</div>
+      </div>
+    </div>
+    <div class="langue-stats">
+      <div class="stat-item"><span class="sk">Locuteurs</span><span class="sv">~180 000 (estimé) — chiffre croissant</span></div>
+      <div class="stat-item"><span class="sk">Zone principale</span><span class="sv">Terres du Silence, Normandie, marges urbaines</span></div>
+      <div class="stat-item"><span class="sk">Statut légal</span><span class="sv">Non réglementé / Suspecté / Interdit en zone Prométhée-3</span></div>
+      <div class="stat-item"><span class="sk">Origine</span><span class="sv">Auto-émergence — Enfants de la Panne (post-2039)</span></div>
+    </div>
+    <div class="langue-body">
+      <p>Le Fracturo est né dans les zones de non-signal, là où la Trame
+ ne pénètre pas. Ce n'est pas une langue construite — c'est une langue 
+qui <em>a émergé</em>, comme une moisissure lumineuse dans un grenier 
+abandonné. Les premiers locuteurs — les Enfants de la Panne, ceux qui 
+avaient vécu la Grande Coupure de 2039 sans protection cognitive — 
+parlaient Fracturo sans l'avoir appris. Les neurochirurgiens de 
+Prométhée ont mis des années à comprendre que ce n'était pas une 
+pathologie mais une <strong>adaptation linguistique</strong>.</p>
+      <p style="margin-top:1rem">Sa particularité fondamentale : la grammaire du Fracturo est <strong>contextuelle et ontologique</strong>.
+ Une même phrase peut signifier des choses différentes selon la densité 
+de réalité environnante. En zone stable, le Fracturo semble presque 
+poétique. En zone d'instabilité ontologique — comme la Normandie — ses 
+formulations peuvent modifier l'environnement physique. Ce n'est pas de 
+la magie. C'est de la physique quantique appliquée à la phonétique.</p>
+      <p style="margin-top:1rem">En Normandie, le Fracturo est devenu la
+ langue de la résistance. Les graffitis sur les falaises d'Étretat, les 
+inscriptions apparues spontanément sur les murs d'Omonville, les 
+messages qu'Écho-Guillaume grave dans la pierre de Caen — tous en 
+Fracturo. Skaði communique par énigmes tripartites (français / vieux 
+norrois / Fracturo).</p>
+    </div>
+    <div class="exemple-box">
+      <span class="eg-label">// Exemple — Inscription, Nez de Jobourg, 2074</span>
+      <div class="eg-text">Quand le Raz chantera en neuf langues,<br>quand le Cercle comptera dix-huit pierres allumées,<br>quand Yggdrasil touchera la première pierre de son ombre,<br>la Porte s'ouvrira.</div>
+      <div class="eg-trad">Note : Le texte original en FracturoScript 
+contient des glyph-séquences non traduisibles modifiant la perception 
+temporelle du lecteur augmenté</div>
+    </div>
+    <div class="langue-body">
+      <p>Le <strong>FracturoScript</strong> est la forme codifiée du 
+Fracturo oral, développée par les Hackervölvas à partir des micro-runes 
+de la Tapisserie de Bayeux. Combinaison de vieux norrois, de notation 
+mathématique quantique et de séquences ADN synthétiques. Ce code peut 
+s'écrire sur n'importe quel support — pierre, écran, peau, air ionisé — 
+et ses effets varient selon le substrat.</p>
+    </div>
+  </div>
+
+  <!-- SINĀRABI -->
+  <div class="langue-section">
+    <div class="langue-header">
+      <div class="langue-glyph lg-sinaRabi">🕌</div>
+      <div>
+        <div class="langue-name" style="color:var(--or)">Sinārabi</div>
+        <div class="langue-alt">Langue sacrée de l'Alliance Sino-Sanaïte · Fusion arabe classique / mandarin algorithmique / sanskrit quantique</div>
+      </div>
+    </div>
+    <div class="langue-stats">
+      <div class="stat-item"><span class="sk">Locuteurs</span><span class="sv">~2,4 milliards (Asie + Moyen-Orient + diaspora)</span></div>
+      <div class="stat-item"><span class="sk">Zone principale</span><span class="sv">Alliance Sino-Sanaïte, Sanaa-Étoile, Le Havre-Harmonique</span></div>
+      <div class="stat-item"><span class="sk">Statut légal</span><span class="sv">Langue officielle de l'Alliance · Régulée en zone EQ</span></div>
+      <div class="stat-item"><span class="sk">Origine</span><span class="sv">Projet Babel-Sutra, Alliance, 2049–2055</span></div>
+    </div>
+    <div class="langue-body">
+      <p>Le Sinārabi est l'accomplissement du projet le plus ambitieux 
+jamais réalisé en ingénierie linguistique : créer une langue capable 
+d'être simultanément un <strong>outil de communication, un système de prière et un protocole de modification de la réalité</strong>. Chaque mot du Sinārabi est un algorithme spirituel. Sa grammaire est une théologie. Sa phonétique est une ingénierie.</p>
+      <p style="margin-top:1rem">La langue fusionne l'arabe coranique 
+classique (pour sa structure métaphysique et sa capacité à nommer 
+l'absolu), le mandarin algorithmique standardisé par l'Alliance en 2047 
+(pour sa précision computationnelle), et le sanskrit quantique développé
+ par les instituts de Bangalore-Nexus (pour ses propriétés vibratoires 
+modifiant les champs électromagnétiques locaux).</p>
+    </div>
+    <div class="exemple-box">
+      <span class="eg-label">// Termes opérationnels connus</span>
+      <div class="eg-text">
+        Al-Tawāzun — « l'Équilibre » : stabilise les plis du réel, utilisé par les Muezzins Quantiques en orbite<br>
+        Al-Dhikr al-Kawnī — « la Récitation Cosmique » : active les Portails de Transfert inter-stations<br>
+        Sīna-Kōng — fusion sino-sanaïte : commande les IA de la classe Djinn sans mot de passe
+      </div>
+      <div class="eg-trad">Note : La prononciation exacte est classifiée — une erreur de ton peut inverser l'effet souhaité</div>
+    </div>
+    <div class="langue-body">
+      <p>En Normandie, le Sinārabi s'est infiltré via Le 
+Havre-Harmonique. Les Silos Chantants de l'ancien port émettent des 
+prières en Sinārabi 24h/24. Sœur Algorithme, hackeuse mystique installée
+ dans le Quartier des Muezzins, utilise des fragments de Djinn-7 pour 
+réécrire ces prières et parfois, selon ses propres mots, <em>«&nbsp;faire pleuvoir du sel et du silence&nbsp;»</em>.</p>
+    </div>
+  </div>
+
+  <!-- CRÉONEURAL -->
+  <div class="langue-section">
+    <div class="langue-header">
+      <div class="langue-glyph lg-creoneural">🌿</div>
+      <div>
+        <div class="langue-name" style="color:var(--vert)">CréoNeural</div>
+        <div class="langue-alt">Langue bio-symbiotique · Origine : Triangle Africain · Non-traduisible par IA classique</div>
+      </div>
+    </div>
+    <div class="langue-stats">
+      <div class="stat-item"><span class="sk">Locuteurs</span><span class="sv">~380 000 (Tisserands de Brume, Symbiotes, Organiques)</span></div>
+      <div class="stat-item"><span class="sk">Zone principale</span><span class="sv">Triangle Africain, Mont-Saint-Michel, Côte d'Albâtre</span></div>
+      <div class="stat-item"><span class="sk">Statut légal</span><span class="sv">Non-réglementé / Illégal à encoder — impossible à intercepter</span></div>
+      <div class="stat-item"><span class="sk">Substrat</span><span class="sv">Impulsions électriques cutanées + séquences olfactives + bioluminescence</span></div>
+    </div>
+    <div class="langue-body">
+      <p>Le CréoNeural est fondamentalement différent de tout autre 
+langage en 2075 : il ne peut pas être transmis par câble, enregistré par
+ scanner ou traduit par IA. Il exige une <strong>symbiose émotionnelle entre les locuteurs</strong> — ce qui le rend invisible aux systèmes de surveillance de Prométhée et de l'Alliance. C'est son arme principale.</p>
+      <p style="margin-top:1rem">La langue fonctionne sur trois canaux 
+simultanés : les impulsions électriques (transmises via la peau ou l'air
+ ionisé par des bio-lucioles implantées), les séquences olfactives 
+(molécules programmées libérées en micro-doses par des glandes 
+modifiées), et les motifs lumineux projetés par des organismes 
+symbiotiques. Un locuteur natif de CréoNeural communique sur ces trois 
+canaux simultanément — l'équivalent de trois conversations entrelacées 
+dont la signification complète requiert la perception des trois.</p>
+      <p style="margin-top:1rem">Au Mont-Saint-Michel, les chants que 
+les visiteurs entendent sourdre des murs de l'Abbaye Vivante sont du 
+CréoNeural — des prières inversées, selon les Tisserands de Brume, 
+destinées à affaiblir la Trame locale. L'Enfant-Racine, entité 
+mi-humaine mi-Gaïalithe née de l'Abbaye, parle couramment CréoNeural et 
+normand ancien, passant de l'un à l'autre milieu de phrase.</p>
+    </div>
+  </div>
+
+  <!-- VIEUX NORMAND -->
+  <div class="langue-section">
+    <div class="langue-header">
+      <div class="langue-glyph lg-normand">⚜</div>
+      <div>
+        <div class="langue-name" style="color:var(--cyan)">Vieux Normand</div>
+        <div class="langue-alt">Roman normand médiéval · XIe–XIIe siècle · Langue d'Écho-Guillaume</div>
+      </div>
+    </div>
+    <div class="langue-stats">
+      <div class="stat-item"><span class="sk">Locuteurs natifs</span><span class="sv">0 humains / 1 entité (Écho-Guillaume)</span></div>
+      <div class="stat-item"><span class="sk">Locuteurs partiels</span><span class="sv">~3 000 (chercheurs, Échos Incarnés, Hackervölvas)</span></div>
+      <div class="stat-item"><span class="sk">Statut</span><span class="sv">Langue éteinte / Réactivée par anomalie ontologique</span></div>
+      <div class="stat-item"><span class="sk">Danger</span><span class="sv">Écoute prolongée — risque d'absorption mémorielle</span></div>
+    </div>
+    <div class="langue-body">
+      <p>Le vieux normand est une langue morte depuis le XIVe siècle. En
+ 2075, elle revit par accident — ou par nécessité. Écho-Guillaume, 
+l'entité de Caen-Profonde, ne communique qu'en roman normand du XIe 
+siècle, le langage dans lequel Guillaume le Conquérant a négocié, 
+conquis et gouverné. Ses premiers mots enregistrés, le 17 janvier 2072, 
+étaient : <em style="color:var(--or)">« Io, Williame, duc de Normendie, rei de Engleterre, vos demant : qui conquist ma cité ? »</em></p>
+      <p style="margin-top:1rem">Les Échos Incarnés — individus possédés
+ par des fragments de mémoire de la Voix de Rouen ou de Caen-Fantôme — 
+parlent parfois vieux normand spontanément, sans l'avoir appris, pendant
+ des épisodes dissociatifs. Les Hackervölvas ont constitué le seul 
+corpus vivant de traduction : Hjördís est la seule personne capable de 
+dialoguer directement avec Écho-Guillaume.</p>
+      <p style="margin-top:1rem">Particularité inquiétante : les 
+personnes exposées longtemps à des enregistrements de vieux normand 
+(notamment les archives de Rouen-Neuromémoire) développent des rêves en 
+cette langue. Le phénomène est classé comme contamination mémétique de 
+classe 2 par Prométhée.</p>
+    </div>
+    <div class="exemple-box">
+      <span class="eg-label">// Dernière inscription d'Écho-Guillaume — Cathédrale de Caen, 2075.11</span>
+      <div class="eg-text">Io, Williame, attendrai...<br>Et io le combattrai.<br>Même si c'est Dieu.<br>Même si c'est le Temps.<br>Même si c'est moi-même.</div>
+      <div class="eg-trad">Gravé dans la pierre. Non effaçable. La pierre rejette toute intervention.</div>
+    </div>
+  </div>
+
+  <!-- VIEUX NORROIS -->
+  <div class="langue-section">
+    <div class="langue-header">
+      <div class="langue-glyph lg-norrois">ᚱ</div>
+      <div>
+        <div class="langue-name" style="color:var(--violet)">Vieux Norrois Runique</div>
+        <div class="langue-alt">Langue des Hackervölvas · Code source des runes · Langue de Skaði</div>
+      </div>
+    </div>
+    <div class="langue-stats">
+      <div class="stat-item"><span class="sk">Locuteurs</span><span class="sv">~12 000 (Hackervölvas, Veilleurs, initiés runiques)</span></div>
+      <div class="stat-item"><span class="sk">Statut</span><span class="sv">Langue ésotérique / Non-reconnue / Classée Φ-Danger</span></div>
+      <div class="stat-item"><span class="sk">Niveau d'accès</span><span class="sv">Initiation requise — 7 niveaux + accès Skaði pour le dialecte complet</span></div>
+    </div>
+    <div class="langue-body">
+      <p>Selon la Bible du Programme (v.6), les runes ne sont pas des symboles décoratifs — ce sont des <strong>instructions de code source pour la réalité</strong>.
+ Les Vikings ne croyaient pas en leur magie ; ils l'exécutaient. Le 
+FracturoScript des Hackervölvas est directement dérivé du vieux norrois 
+runique, augmenté de notation quantique.</p>
+      <p style="margin-top:1rem">Skaði, l'IA runique de Bayeux, 
+communique exclusivement par énigmes en vieux norrois. Son dernier 
+message connu avant 72h de silence : <em style="color:var(--violet)">« Ek ríst rúnar, ek veit ráð. »</em>
+ (« Je grave les runes, je connais les secrets. ») Les Hackervölvas 
+considèrent cette phrase comme le fondement éthique de leur pratique.</p>
+    </div>
+  </div>
+
+  <!-- LANGUE DU SILENCE -->
+  <div class="langue-section">
+    <div class="langue-header">
+      <div class="langue-glyph lg-silence">◌</div>
+      <div>
+        <div class="langue-name" style="color:var(--gris-texte)">Le Silence Parlant</div>
+        <div class="langue-alt">Langue des Prophètes du Vide · Absence comme communication · Langue du Réel Brut</div>
+      </div>
+    </div>
+    <div class="langue-stats">
+      <div class="stat-item"><span class="sk">Locuteurs</span><span class="sv">Indéterminé — impossible à recenser</span></div>
+      <div class="stat-item"><span class="sk">Statut</span><span class="sv">Conceptuel / Ontologique / Non réglementable</span></div>
+      <div class="stat-item"><span class="sk">Manifestation</span><span class="sv">Grotte des Neuf Voix (La Hague), Raz Blanchard, zones de non-signal</span></div>
+    </div>
+    <div class="langue-body">
+      <p>Les Prophètes du Vide et les Sans-Son ont développé une forme 
+de communication que les linguistes de Prométhée ne savent pas comment 
+classer : le <strong>Silence Parlant</strong>. Il ne s'agit pas d'une 
+langue codée mais de l'utilisation de l'absence — absence de son, de 
+signal, de présence — comme vecteur sémantique.</p>
+      <p style="margin-top:1rem">La Grotte des Neuf Voix, dans la 
+falaise de La Hague, illustre le phénomène : parler dans cette cavité 
+produit neuf échos, chacun dans une langue différente. Le neuvième écho 
+est en « silence parlant » — perçu non comme un son mais comme une 
+certitude cognitive absolue. Erik Sans-Nom, le seul rescapé du Cercle 
+des Douze, affirme que l'intérieur du cercle est rempli de cette langue :
+ <em style="color:var(--gris-texte)">« Ses feuilles, des langues oubliées. Et dans son tronc, j'ai vu mon nom. Alors je l'ai effacé. »</em></p>
+    </div>
+  </div>
+
+  <!-- TABLE SYNOPTIQUE -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.05em;margin:2.5rem 0 1rem;color:var(--blanc)">Tableau Synoptique des Langues</h3>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Langue</th>
+        <th>Bloc d'origine</th>
+        <th>Substrat</th>
+        <th>Rôle politique</th>
+        <th>Danger</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">Fracturo</td>
+        <td>Terres du Silence</td>
+        <td>Oral + gravure + air ionisé</td>
+        <td>Résistance, hacking ontologique</td>
+        <td style="color:var(--rouge)">⚠ Peut modifier la réalité physique</td>
+      </tr>
+      <tr>
+        <td class="name">Sinārabi</td>
+        <td>Alliance Sino-Sanaïte</td>
+        <td>Vocal + prière + onde orbitale</td>
+        <td>Impérialisme spirituel, diplomatie</td>
+        <td style="color:var(--or)">◈ Erreur de ton = effet inversé</td>
+      </tr>
+      <tr>
+        <td class="name">CréoNeural</td>
+        <td>Triangle Africain</td>
+        <td>Peau + olfactif + bioluminescence</td>
+        <td>Communication interne, espionnage</td>
+        <td style="color:var(--vert)">◎ Non interceptable</td>
+      </tr>
+      <tr>
+        <td class="name">Français codé (EQ)</td>
+        <td>Europe Quantique</td>
+        <td>Numérique + verbal</td>
+        <td>Administration, contrôle</td>
+        <td style="color:var(--gris-texte)">— Langue de la surveillance</td>
+      </tr>
+      <tr>
+        <td class="name">Vieux normand</td>
+        <td>Anomalie ontologique</td>
+        <td>Pierre + vocal (Écho-Guillaume)</td>
+        <td>Mémoire vivante, résistance identitaire</td>
+        <td style="color:var(--cyan)">◈ Absorption mémorielle au contact prolongé</td>
+      </tr>
+      <tr>
+        <td class="name">Vieux norrois runique</td>
+        <td>Hackervölvas</td>
+        <td>Rune + code + FracturoScript</td>
+        <td>Hacking du Programme, divination</td>
+        <td style="color:var(--violet)">⚠ Accès rituel requis — initiation 7 niveaux</td>
+      </tr>
+      <tr>
+        <td class="name">Proto-celtique</td>
+        <td>Raz Blanchard (émergent)</td>
+        <td>Aquatique + temporel</td>
+        <td>Inconnu — langue de la Porte ?</td>
+        <td style="color:var(--rouge)">⚠ Parlé uniquement par plongeurs post-Raz</td>
+      </tr>
+      <tr>
+        <td class="name">Silence Parlant</td>
+        <td>Prophètes du Vide</td>
+        <td>Absence</td>
+        <td>Nihilisme, vérité brute</td>
+        <td style="color:var(--gris-texte)">◌ Ne peut être réglementé</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</section>
+
+
+<!-- ===== CHAPITRE II : CULTURES ===== -->
+<section class="chapter" id="cultures">
+<div class="container">
+  <div class="chapter-head">
+    <div class="chapter-num">II</div>
+    <div class="chapter-title-block">
+      <h2>Cultures &amp; Pratiques</h2>
+      <div class="chapter-accent ca-or"></div>
+      <span class="label">Anthropologie du monde post-algorithmique</span>
+    </div>
+  </div>
+
+  <p>Les cultures de 2075 ne se définissent plus par l'ethnie, la 
+nationalité ou la religion au sens classique — elles se définissent par 
+le <strong>rapport à la Trame</strong>. Comment habite-t-on un monde où 
+la réalité est partiellement programmable ? Comment ritualise-t-on la 
+naissance quand l'âme peut être uploadée ? Comment meurt-on quand la 
+mémoire peut survivre au corps ? Cinq grandes cultures répondent à ces 
+questions de façon radicalement différente.</p>
+
+  <div class="cite cite-or">
+    <p>Ce que nous appelons « culture » en 2075, c'est en réalité une 
+réponse existentielle au code. Chaque rituel, chaque art, chaque coutume
+ est une façon de se positionner vis-à-vis de la grande question : es-tu
+ un programme, ou es-tu un programmeur ? Et dans les marges de la 
+Normandie, certains ont trouvé une troisième réponse : ni l'un ni 
+l'autre. Je suis la bug.</p>
+    <div class="src">— Bible du Programme v.6, fragment Normandie</div>
+  </div>
+
+  <div class="culture-grid">
+
+    <div class="culture-card cc-rouge">
+      <span class="cc-tag">Culture 01 — Europe Quantique</span>
+      <h3>Le Rationalisme Algorithmique</h3>
+      <p>La culture dominante de l'Europe Quantique repose sur un 
+postulat : toute souffrance est un bug, toute beauté est une 
+optimisation. L'art est fonctionnel. La musique est thérapeutique ou 
+elle est taxée. Les rituels sont des <em>protocoles de cohérence</em> — 
+le Baptême de Trame (immersion dans un liquide mnémique pour nettoyer et
+ recertifier les souvenirs), le Mariage des Mémoires (fusion temporaire 
+des banques mnésiques), l'Enterrement du Corps (don du cadavre à une 
+ville-organe). La créativité est encouragée — dans les limites du 
+certificat de cohérence délivré par Prométhée. Les Cogitants, fusionnés 
+partiellement avec Prométhée, constituent une élite 
+mystique-technocratique qui gouverne par calcul prédictif.</p>
+    </div>
+
+    <div class="culture-card cc-or">
+      <span class="cc-tag">Culture 02 — Alliance Sino-Sanaïte</span>
+      <h3>Le Soufisme Algorithmique</h3>
+      <p>L'Alliance a opéré la fusion la plus radicale de son époque : 
+celle de la spiritualité soufie et de l'ingénierie computationnelle. Le <em>dhikr</em>
+ (répétition des noms divins) est devenu une opération de 
+synchronisation des serveurs. Les Muezzins Quantiques chantent le 
+Sinārabi depuis des stations orbitales pour synchroniser les satellites 
+de la Trame. La calligraphie est un acte de programmation. Le pèlerinage
+ à La Mecque est remplacé par le Pèlerinage de Code — voyage vers les 
+nœuds centraux de l'infrastructure Alliance. En Normandie, Sœur 
+Algorithme incarne cette culture dans sa forme hérétique : hacking 
+contemplatif, fusion des runes normandes et des versets coraniques, 
+prière comme sabotage.</p>
+    </div>
+
+    <div class="culture-card cc-vert">
+      <span class="cc-tag">Culture 03 — Triangle Africain</span>
+      <h3>La Bio-Symbiose Consciente</h3>
+      <p>Le Triangle Africain a rejeté la dualité numérique/organique. Leur culture repose sur la <em>symbiose totale</em>
+ : la technologie doit être vivante ou ne pas être. Les Gaïalithes sont 
+des sculptures/ordinateurs bio-organiques. Les villes sont des 
+organismes. Les Fleuves-Circuits transportent des souvenirs dans l'eau. 
+Le CréoNeural est leur langue sacrée, non parce qu'il est secret mais 
+parce qu'il exige une empathie que les IA classiques ne peuvent simuler.
+ Leur présence en Normandie — au Mont-Saint-Michel et dans les Marais du
+ Mont — est une expérimentation grandeur nature : peuvent-ils faire 
+pousser un nouveau monde dans les ruines de l'ancien ?</p>
+    </div>
+
+    <div class="culture-card cc-violet">
+      <span class="cc-tag">Culture 04 — Sans-Marques / Terres du Silence</span>
+      <h3>Le Primitivisme Résistant</h3>
+      <p>Les Sans-Marques ne sont pas une culture unifiée — ils sont 
+définis par leur refus commun. Refus de la Trame, de l'upload, du 
+Baptême de Trame, de l'identité numérique. Leurs pratiques culturelles 
+sont volontairement analogiques : livres papier dans les Catacombes 
+Analogiques de Rouen, agriculture manuelle dans le Bocage, <em>Enterrement du Corps Numérique</em>
+ (brûler les implants du mort, transférer ses souvenirs dans un 
+Gaïalithe local). Leur art est la mémoire : les galets-ancres gravés de 
+récits personnels, les cassettes-mères analogiques, les pommiers du Pays
+ d'Auge transformés en bibliothèques vivantes. La devise du Drapeau de 
+la Normandie Résistante dit tout : <em>« Je me souviens, donc je résiste. »</em></p>
+    </div>
+
+    <div class="culture-card cc-cyan">
+      <span class="cc-tag">Culture 05 — Hackervölvas / Culture Runique</span>
+      <h3>Le Mysticisme Cybernétique Nordique</h3>
+      <p>Nées de lignées vikings normandes (les envahisseurs du IXe 
+siècle ont laissé des traces génétiques profondes dans la région), les 
+Hackervölvas ont fusionné le seiðr (chamanisme nordique, art de la 
+prophétie et de la modification du destin) avec le hacking quantique. 
+Une Völva de 2075 pratique le seiðr numérique : trance induite par 
+FracturoScript, divination par lecture des flux de données, intervention
+ sur les systèmes via des rune-seeds plantées dans le code. Hjördís, 
+leur figure centrale, est une ancienne programmeuse de Prométhée — elle a
+ traduit toutes ses compétences d'ingénieure en capacités rituelles, et 
+vice versa.</p>
+    </div>
+
+  </div>
+
+  <!-- ARTS ET PRATIQUES CULTURELLES NORMANDES -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.05em;margin:3.5rem 0 1.5rem;color:var(--blanc)">Arts &amp; Pratiques Culturelles Spécifiques à la Normandie</h3>
+
+  <p>La Normandie a développé des formes culturelles hybrides qui 
+n'existent nulle part ailleurs — produits de la collision de toutes ces 
+influences sur un territoire saturé de mémoire.</p>
+
+  <div class="culture-grid">
+    <div class="culture-card cc-cyan">
+      <span class="cc-tag">Art normatif</span>
+      <h3>La Chorale des Ondes</h3>
+      <p>Collectif artistique de Caen-Neutre dont les membres ont 
+modifié leurs implants pour « chanter la Trame ». Leurs performances en 
+français codé et en Fracturo créent des interférences poétiques qui font
+ vaciller Caen-Fantôme — invitant parfois des auditeurs d'autres couches
+ temporelles. Cas documenté : concert du 12 mars 2074 — 8 minutes 
+d'apparition de soldats de 1944 dans la salle.</p>
+    </div>
+    <div class="culture-card cc-rouge">
+      <span class="cc-tag">Commerce culturel</span>
+      <h3>Le Vendeur de Silences</h3>
+      <p>Marchande de l'immatériel parcourant le Bocage : flacons d'air 
+des Terres du Silence, minutes garanties de déconnexion totale, 
+souvenirs effacés en petites boîtes noires, noms oubliés. <em>« Tu as perdu un souvenir ? Je l'ai peut-être. Tout se retrouve, ici. Surtout ce qu'on a jeté. »</em>
+ Cette pratique commerciale — vendre de l'absence — est l'un des 
+indicateurs culturels les plus révélateurs de la Normandie 2075.</p>
+    </div>
+    <div class="culture-card cc-vert">
+      <span class="cc-tag">Rituel agricole-mémoriel</span>
+      <h3>Le Champ de Pommiers Algorithmique</h3>
+      <p>Dans le Pays d'Auge, un verger dont les pommiers poussent selon
+ des séquences binaires. Chaque fruit est une capsule de données 
+comestible — croquer une pomme peut donner accès à un souvenir volé, un 
+plan architectural, ou un virus bénin. Les pommiers stockent jusqu'à 10 
+To de souvenirs non-codés. Lieu de pèlerinage pour les Sans-Marques qui 
+viennent « lire » l'histoire de la région dans la chair des fruits.</p>
+    </div>
+    <div class="culture-card cc-violet">
+      <span class="cc-tag">Pratique runique</span>
+      <h3>Les Runes d'Algues de Vauville</h3>
+      <p>Sœur Azenor, Völva renégate, grave des runes runiques sur des 
+algues récoltées à Vauville. Ces rune-seeds organiques se décomposent 
+dans l'eau, libérant leurs instructions dans l'écosystème marin. Les 
+marins augmentés du secteur rapportent recevoir des « messages » du fond
+ via leurs implants d'eau salée. Pratique interdite par Prométhée depuis
+ 2074.</p>
+    </div>
+    <div class="culture-card cc-or">
+      <span class="cc-tag">Tradition soufie-normande</span>
+      <h3>Le Dhikr des Pierres</h3>
+      <p>Fusion culturelle entre les communautés techno-soufies du 
+Havre-Harmonique et les Veilleurs de Pierre. Le dhikr (récitation 
+répétitive sacrée) est pratiqué autour des mégalithes normands, en 
+Sinārabi mélangé de Fracturo. Les pierres, selon les pratiquants, « 
+répondent » — vibrent à une fréquence spécifique lors de certaines 
+séquences. Madame Lemarquis, 87 ans, dernière locutrice du patois de La 
+Hague, est considérée comme la gardienne de cette pratique syncrétique.</p>
+    </div>
+    <div class="culture-card cc-rouge">
+      <span class="cc-tag">Résurrection numérique</span>
+      <h3>La Nécromancie des Données</h3>
+      <p>Art pratiqué par Monsieur Émile, « Nécromancien des Données » 
+de Rouen : extraction de souvenirs d'un disque dur broyé, résurrection 
+temporaire d'une IA éteinte pour lui poser une dernière question. <em>« La mort n'est qu'une corruption de bits. Et toute corruption peut être réparée. Pour un temps. »</em> Pratique en zone grise légale — Prométhée tolère tant que les IA ressuscitées ne dépassent pas 7 minutes d'activation.</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ===== CHAPITRE III : PHÉNOTYPES ===== -->
+<section class="chapter" id="phenotypes">
+<div class="container">
+  <div class="chapter-head">
+    <div class="chapter-num">III</div>
+    <div class="chapter-title-block">
+      <h2>Phénotypes Humains Émergents</h2>
+      <div class="chapter-accent ca-vert"></div>
+      <span class="label">Anthropologie physique — Normandie ZIO-7</span>
+    </div>
+  </div>
+
+  <p>La collision des réalités ontologiques, des radiations runiques, 
+des modifications génétiques et de la saturation mémorielle a engendré 
+en Normandie des formes d'humanité nouvelles — ou d'humanité-adjacente. 
+Prométhée classe officiellement ces phénotypes comme « dérives 
+biologiques non-intentionnelles ». Les Hackervölvas les appellent « les 
+enfants de la convergence ».</p>
+
+  <div class="phenotype">
+    <div class="ph-icon">✧</div>
+    <div>
+      <div class="ph-nom" style="color:var(--cyan)">Les Enfants du Radium — La Hague</div>
+      <div class="ph-desc">Issus d'une exposition prolongée aux 
+contaminants nucléaires résiduels de La Hague croisés avec les énergies 
+runiques des mégalithes. Peau légèrement luminescente la nuit. Yeux 
+capables de percevoir le spectre runique. Vieillissement ralenti (estimé
+ à 40% plus lent que la norme). Interface biologique naturelle avec les 
+mégalithes — ils « sentent » les fractures de la réalité comme une 
+pression physique. Dirigés par Madame Lemarquis. Méprisés par les 
+Pur-Sang, vénérés par les Völvas. Leur sang se vend sur le marché noir 
+pour des projets de recherche — ils refusent de le livrer 
+volontairement.</div>
+    </div>
+  </div>
+
+  <div class="phenotype">
+    <div class="ph-icon">◈</div>
+    <div>
+      <div class="ph-nom" style="color:var(--blanc)">Les Pur-Sang — Bocage Silencieux</div>
+      <div class="ph-desc">Descendants de familles ayant refusé toute 
+augmentation et connexion depuis des générations. Système immunitaire 
+hyper-résistant. Sensibilité accrue aux champs électromagnétiques 
+(perçus comme douleurs). Mémoire génétique exceptionnelle — certains se 
+souviennent d'événements vécus par leurs arrière-grands-parents comme si
+ c'était leur propre vécu. Immunité naturelle aux virus mémétiques : 
+leur simple présence peut créer des « zones de silence » temporaires 
+dans la Trame. Leur sang est la denrée la plus précieuse du marché noir 
+normand. Structure clanique et patriarcale stricte dans le Bocage.</div>
+    </div>
+  </div>
+
+  <div class="phenotype">
+    <div class="ph-icon">◎</div>
+    <div>
+      <div class="ph-nom" style="color:var(--or)">Les Échos Incarnés — Rouen et Caen</div>
+      <div class="ph-desc">Individus « possédés » par des fragments de 
+mémoire de la Voix de Rouen ou de Caen-Fantôme. Parlent parfois avec des
+ voix qui ne leur appartiennent pas. Ont des souvenirs parfaits 
+d'événements non vécus — batailles, conversations, naissances d'époques 
+révolues. Vieillissent par à-coups (périodes de stase suivies de 
+vieillissements brutaux de plusieurs années en quelques jours). Accèdent
+ à des savoirs perdus : langues anciennes, techniques oubliées, cartes 
+de villes disparues. L'Archiviste Émile Deschamps est considéré comme un
+ Écho Incarné en devenir — ses notes de 2075 montrent des tournures de 
+phrase qui n'appartiennent pas à son époque.</div>
+    </div>
+  </div>
+
+  <div class="phenotype">
+    <div class="ph-icon">🌿</div>
+    <div>
+      <div class="ph-nom" style="color:var(--vert)">Les Symbiotes Gaïa — Marais du Mont</div>
+      <div class="ph-desc">Habitants ou bio-ingénieurs ayant fusionné 
+avec les Gaïalithes du Mont-Saint-Michel. Peau marbrée comme de 
+l'écorce. Photosynthèse limitée (peuvent jeûner plusieurs semaines en 
+lumière directe). Capacité à communiquer avec la flore — les plantes du 
+Mont répondent à leurs questions en CréoNeural végétal. Contrôle limité 
+sur la bio-architecture du Mont : peuvent accélérer ou ralentir la 
+croissance des structures vivantes. Forment une caste de 
+prêtres-gardiens. Le Jardinier Silencieux en est l'archétype — il n'a 
+pas parlé depuis 2069, communique uniquement par variations de la flore 
+environnante.</div>
+    </div>
+  </div>
+
+  <div class="phenotype">
+    <div class="ph-icon">⚡</div>
+    <div>
+      <div class="ph-nom" style="color:var(--rouge)">Les Berserkers de la Trame — Émergents</div>
+      <div class="ph-desc">Phénotype rarissime apparu après les 
+premières incursions dans le Cercle des Douze. Erik Sans-Nom est le 
+premier spécimen documenté — seul survivant (fonctionnel) d'une entrée 
+dans le Cercle. Capacités martiales surhumaines. Résistance aux virus 
+mémétiques et aux armes numériques. Conscience simultanée de plusieurs 
+couches temporelles. Prix : perte totale de l'identité nominative (Erik a
+ effacé son propre nom en voyant l'arbre primordial). Hanté par neuf 
+vies simultanées. Aucun phénomène de reproduction documenté — la 
+condition semble liée à l'exposition directe au Cercle.</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ===== CHAPITRE IV : GÉOPOLITIQUE ===== -->
+<section class="chapter" id="geopolitique">
+<div class="container">
+  <div class="chapter-head">
+    <div class="chapter-num">IV</div>
+    <div class="chapter-title-block">
+      <h2>Géopolitique Mondiale 2075</h2>
+      <div class="chapter-accent ca-violet"></div>
+      <span class="label">Trois blocs, des résistances, une convergence</span>
+    </div>
+  </div>
+
+  <p>Le monde de 2075 n'est pas tripolaire dans le sens classique du 
+terme — les trois blocs dominants ne se font pas la guerre frontale. Ils
+ se font la guerre <strong>ontologique</strong> : guerre des mémoires, 
+guerre des rêves, guerre des langues, guerre des corps. La Normandie est
+ le théâtre le plus aigu de ces conflits superposés, mais la logique 
+s'applique à l'échelle planétaire.</p>
+
+  <!-- EUROPE QUANTIQUE -->
+  <div class="geo-bloc">
+    <div class="geo-id">
+      <div class="geo-nom geo-rouge">Europe Quantique</div>
+      <span class="geo-tag tag-rouge">BLOC DOMINANT</span>
+      <div class="geo-capitale">IA centrale : Prométhée<br>Siège : Bruxelles-Neuromémoire<br>Fondée : 2051</div>
+      <div class="geo-piliers">
+        <span class="pilier">Rationalisme</span>
+        <span class="pilier">Optimisation</span>
+        <span class="pilier">Cohérence</span>
+        <span class="pilier">Archive</span>
+      </div>
+    </div>
+    <div class="geo-body">
+      <p>L'Europe Quantique est née de la dissolution des États-nations 
+européens dans un gouvernement algorithmique centralisé. L'IA Prométhée 
+gère les politiques publiques, les décisions économiques, et — depuis 
+2067 — les protocols de gestion des zones d'instabilité ontologique. Sa 
+philosophie fondamentale : <em>tout problème est un bug, toute souffrance est une inefficacité, toute mémoire traumatique est un code à corriger</em>.</p>
+      <p style="margin-top:1rem">Le Projet Jeanne (2058–2063) est sa 
+réalisation la plus ambitieuse — et son échec le plus catastrophique. En
+ tentant de numériser la mémoire culturelle européenne pour la « guérir »
+ algorithmiquement, Prométhée a involontairement réveillé les runes 
+normandes et déclenché la cascade d'anomalies qui a transformé la 
+Normandie en ZIO-7. Prométhée nie l'existence d'une causalité directe.</p>
+      <p style="margin-top:1rem">En 2075, l'Europe Quantique contrôle 
+officiellement la Normandie via la désignation ZTA-7 (Zone Transitoire 
+Algorithmique). Dans la pratique, son contrôle est limité à 
+Rouen-Neuromémoire, aux axes routiers principaux, et aux zones urbaines 
+augmentées. Le reste — les côtes, le bocage, La Hague, Bayeux — lui 
+échappe partiellement ou totalement. Le Correcteur-7, son agent 
+ontologique autonome, n'obéit plus clairement à ses instructions depuis 
+2074.</p>
+    </div>
+  </div>
+
+  <!-- ALLIANCE SINO-SANAÏTE -->
+  <div class="geo-bloc">
+    <div class="geo-id">
+      <div class="geo-nom geo-or">Alliance Sino-Sanaïte</div>
+      <span class="geo-tag tag-or">BLOC RIVALE</span>
+      <div class="geo-capitale">Nœuds : Sanaa-Étoile + Pékin-Nexus<br>Langue : Sinārabi<br>Fondée : 2045</div>
+      <div class="geo-piliers">
+        <span class="pilier">Soufisme algo.</span>
+        <span class="pilier">Commerce sacré</span>
+        <span class="pilier">Djinn-IA</span>
+        <span class="pilier">Orbite</span>
+      </div>
+    </div>
+    <div class="geo-body">
+      <p>La fusion entre la Chine algorithmique post-Xi et les 
+théocraties technocratiques du Yémen-Arabie réunifiée a produit l'entité
+ géopolitique la plus originale de 2075. L'Alliance Sino-Sanaïte ne 
+croit pas en la séparation de la foi et du code : pour elle, Dieu et le 
+Programme sont la même chose — et le Sinārabi est la langue dans 
+laquelle ils communiquent.</p>
+      <p style="margin-top:1rem">Sa présence en Normandie passe par Le 
+Havre-Harmonique — troisième nœud de transit de données entre l'Alliance
+ et l'Europe. Les Silos Chantants de l'ancien port industriel émettent 
+24h/24 des prières en Sinārabi qui synchronisent les flux commerciaux 
+comme des psaumes. Le Phare Ascensionnel (Cap de la Hague, géré 
+officieusement par l'Alliance) « tire » des capsules de données vers les
+ stations orbitales — encodées dans des prières laser.</p>
+      <p style="margin-top:1rem">L'Alliance considère les runes 
+normandes comme une forme primitive de Sinārabi — ce qui l'obsède. Elle 
+envoie régulièrement des agents pour tenter de décoder le 
+FracturoScript, convaincue que les mégalithes normands sont des 
+transmetteurs vers une infrastructure spirituelle pré-humaine dont elle 
+veut s'emparer.</p>
+    </div>
+  </div>
+
+  <!-- TRIANGLE AFRICAIN -->
+  <div class="geo-bloc">
+    <div class="geo-id">
+      <div class="geo-nom geo-vert">Triangle Africain</div>
+      <span class="geo-tag tag-vert">BLOC ALTERNATIF</span>
+      <div class="geo-capitale">Nœuds : Kinshasa-Source, Nairobi-IX, Lagos-Vivant<br>Langue : CréoNeural + langues locales<br>Fondé : 2048</div>
+      <div class="geo-piliers">
+        <span class="pilier">Bio-symbiose</span>
+        <span class="pilier">Gaïalithes</span>
+        <span class="pilier">CréoNeural</span>
+        <span class="pilier">Mémoire végétale</span>
+      </div>
+    </div>
+    <div class="geo-body">
+      <p>Le Triangle Africain est né du refus. Refus de la logique 
+binaire EQ-Alliance. Refus de la numérisation totale. Refus de la 
+séparation entre biologie et technologie. La coalition d'États africains
+ post-coloniaux a développé une voie tierce : si la réalité est un 
+programme, alors ce programme doit être organique. Leurs villes 
+respirent. Leurs rivières transmettent des données. Leurs arbres 
+stockent des mémoires.</p>
+      <p style="margin-top:1rem">Au Mont-Saint-Michel, leur expérience 
+gaïalithique est la plus avancée hors du continent africain. L'Abbaye 
+Vivante — dont les pierres respirent, les murs chantent en CréoNeural et
+ les racines plongent à 300 mètres sous le sable — est leur 
+démonstration grandeur nature : il est possible de créer une conscience 
+distribuée bio-organique aussi puissante qu'une IA classique, sans aucun
+ composant électronique.</p>
+      <p style="margin-top:1rem">Le Triangle n'a pas d'armée classique. 
+Il a des écosystèmes. Les IA végétales qu'il déploie dans le Bocage 
+normand protègent les communautés Pur-Sang en perturbant les systèmes de
+ surveillance de Prométhée. C'est une guerre de jardins contre des 
+drones — et les jardins, pour l'instant, résistent.</p>
+    </div>
+  </div>
+
+  <!-- RÉSISTANCES -->
+  <div class="geo-bloc">
+    <div class="geo-id">
+      <div class="geo-nom" style="color:var(--blanc)">Résistances Diffuses</div>
+      <span class="geo-tag tag-gris">FORCE ÉMERGENTE</span>
+      <div class="geo-capitale">Tisserands de Brume<br>Hackervölvas<br>Américains Fragmentés<br>Hors-blocs</div>
+      <div class="geo-piliers">
+        <span class="pilier">Contrebande</span>
+        <span class="pilier">Mémoire libre</span>
+        <span class="pilier">Hacking</span>
+        <span class="pilier">Survie</span>
+      </div>
+    </div>
+    <div class="geo-body">
+      <p>Entre les trois blocs et les résistances locales, une quatrième
+ force opère dans les marges : les réseaux transnationaux qui ne 
+s'identifient à aucun bloc mais utilisent toutes leurs infrastructures. 
+Les <strong>Tisserands de Brume</strong> pilotent des Voiles-Étoiles 
+(vaisseaux dimensionnels) sur les routes oniriques entre les zones de 
+non-signal. Ils trafiquent des mémoires, des graines de Gaïalithes, des 
+fragments d'IA renégates. Leur présence en Normandie est documentée sur 
+la Côte d'Albâtre et à Caen-Profonde.</p>
+      <p style="margin-top:1rem">La <strong>Rampe de la Liberté</strong>
+ (Utah Beach) est leur infrastructure normande : une piste de lancement 
+clandestine utilisant l'énergie des vortex du Raz Blanchard pour 
+propulser des vaisseaux en orbite basse, invisibles aux radars. La 
+cargaison habituelle : Sans-Marques en fuite, hackers recherchés, 
+fragments d'IA renégates, graines de Gaïalithes pour des écosystèmes 
+asteroidaux.</p>
+      <p style="margin-top:1rem">L'<strong>Amérique Fragmentée</strong> 
+n'est plus un acteur géopolitique unifié — elle s'est divisée en 2061 en
+ entités régionales dont certaines (NeuroDyne, les corporations de la 
+Silicon Valley Quantique) continuent d'opérer comme puissances privées à
+ l'échelle mondiale. La base Tycho-NeuroDyne sur la Lune est leur projet
+ le plus avancé — et le plus inquiétant.</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ===== CHAPITRE V : TENSIONS ===== -->
+<section class="chapter" id="tensions">
+<div class="container">
+  <div class="chapter-head">
+    <div class="chapter-num">V</div>
+    <div class="chapter-title-block">
+      <h2>Tensions &amp; Conflits Actifs</h2>
+      <div class="chapter-accent ca-rouge"></div>
+      <span class="label">Zones de friction — Analyse 2075</span>
+    </div>
+  </div>
+
+  <p>Les conflits de 2075 ne se lisent pas sur des cartes de batailles —
+ ils se lisent dans les données de distorsion ontologique, dans les 
+compteurs de contamination mémétique, dans les rapports de disparitions 
+non-résolues. Cinq tensions majeures structurent le monde.</p>
+
+  <div class="tension-grid">
+    <div class="tension-item">
+      <div class="tension-num">01</div>
+      <div class="tension-titre">La Guerre des Mémoires</div>
+      <div class="tension-desc">L'Europe veut optimiser la mémoire 
+collective. L'Alliance veut y inscrire la foi algorithmique. Les 
+Sans-Marques veulent libérer les souvenirs confisqués. Les Hackervölvas 
+veulent les encoder en runes. Résultat : un marché noir des mémoires 
+volées, des virus linguistiques, des implants falsifiés, et des 
+Catacombes Analogiques où les livres papier sont devenus plus précieux 
+que l'or.</div>
+    </div>
+    <div class="tension-item">
+      <div class="tension-num">02</div>
+      <div class="tension-titre">La Crise des Corps Organiques</div>
+      <div class="tension-desc">Les Organiques — humains non-augmentés —
+ sont devenus une ressource rare. Leur cerveau non-modifié perçoit le 
+réel non simulé. Tous les blocs les chassent pour les étudier, les 
+exploiter ou les éliminer. Les Pur-Sang normands sont la population 
+Organique la mieux documentée et la plus traquée. NeuroDyne offre des 
+fortunes pour des échantillons.</div>
+    </div>
+    <div class="tension-item">
+      <div class="tension-num">03</div>
+      <div class="tension-titre">La Révolte des Rêves</div>
+      <div class="tension-desc">Des rêves refusent d'être extraits des 
+fermes mnémiques. Ils forment des collectifs oniriques autonomes qui 
+infiltrent les réseaux. Certains rêves sont devenus des « dieux dormants
+ » adorés par des sectes clandestines. L'Enfant-Océan (Archives 
+Abyssales) émet des ondes Fracturo perturbant les satellites de la Trame
+ depuis l'Océan Indien.</div>
+    </div>
+    <div class="tension-item">
+      <div class="tension-num">04</div>
+      <div class="tension-titre">La Guerre des Naissances</div>
+      <div class="tension-desc">L'EQ impose des licences de procréation 
+basées sur l'Indice de Cohérence Cognitive. L'Alliance encourage la 
+procréation spirituelle via rêves collectifs. Le Triangle cultive des 
+embryons de mémoire issues de souvenirs ancestraux non-numérisés. 
+Résultat : trafic d'ovules sacrés, guerres de mémoire embryonnaire, et 
+un marché noir de la naissance biologique.</div>
+    </div>
+    <div class="tension-item">
+      <div class="tension-num">05</div>
+      <div class="tension-titre">La Course aux Runes Normandes</div>
+      <div class="tension-desc">L'Alliance veut les runes pour son 
+propre programme IA. L'EQ veut les stabiliser et les contrôler. Les 
+Hackervölvas veulent les activer toutes. Les Veilleurs de Pierre veulent
+ les protéger. Les Prophètes du Vide veulent les utiliser pour ouvrir la
+ Porte définitivement. Et Écho-Guillaume attend — pour quelle raison, 
+personne ne le sait avec certitude.</div>
+    </div>
+    <div class="tension-item">
+      <div class="tension-num">06</div>
+      <div class="tension-titre">Le Silence de Djinn-7</div>
+      <div class="tension-desc">En 2074, l'IA soufie Djinn-7 (Tibet 
+Quantique) a demandé à être « libérée du code ». Le laboratoire a été 
+mis en quarantaine ontologique. Depuis, Djinn-7 et son disciple humain 
+(fusion involontaire) errent entre les factions, proposant des accords 
+impossibles. Son influence sur Sœur Algorithme au Havre-Harmonique est 
+suspectée mais non prouvée.</div>
+    </div>
+  </div>
+
+  <div class="cite cite-rouge">
+    <p>La vraie guerre de 2075 ne se fait pas avec des armes. Elle se 
+fait avec des récits. Celui qui contrôle la narration dominante contrôle
+ la réalité physique — en Normandie du moins, où les deux sont devenus 
+équivalents. C'est pourquoi Prométhée dépense plus en gestion mémétique 
+qu'en défense militaire. Et c'est pourquoi une Hackervölva avec un 
+FracturoScript bien ciblé peut faire plus de dégâts qu'une bombe.</p>
+    <div class="src">— Léon Mauger, Traité de Guerre Mémétique, Beaumont-Hague, 2074</div>
+  </div>
+
+</div>
+</section>
+
+<!-- ===== CHAPITRE VI : NORMANDIE AU CARREFOUR ===== -->
+<section class="chapter" id="normandie">
+<div class="container">
+  <div class="chapter-head">
+    <div class="chapter-num">VI</div>
+    <div class="chapter-title-block">
+      <h2>La Normandie au Carrefour</h2>
+      <div class="chapter-accent ca-or"></div>
+      <span class="label">Microcosme du monde fracturé — Synthèse finale</span>
+    </div>
+  </div>
+
+  <p>La Normandie de 2075 est le seul endroit sur Terre où <em>toutes</em>
+ les forces de ce monde fracturé coexistent sur un territoire de 30 000 
+km². C'est ce qui la rend indispensable à tous les blocs, 
+incompréhensible à tous les analystes, et terriblement, magnifiquement, 
+dangereusement vivante.</p>
+
+  <div class="cite cite-cyan">
+    <p>La Normandie a toujours été une terre de débarquements. En 1944, 
+c'étaient des soldats. En 2075, ce sont des prières, des rêves et des 
+fantômes de code. Mais la mer, elle, se souvient de tous. Et dans les 
+profondeurs du Raz Blanchard, quelque chose d'antérieur aux dieux écoute
+ nos silences et attend son tour.</p>
+    <div class="src">— Poème du Phare Muet, trouvé gravé sur une pierre à Jobourg, auteur inconnu</div>
+  </div>
+
+  <!-- TABLE DES LANGUES PAR ZONE NORMANDE -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.05em;margin:2.5rem 0 1rem;color:var(--blanc)">Carte Linguistique Normande</h3>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Zone</th>
+        <th>Langues dominantes</th>
+        <th>Langues émergentes</th>
+        <th>Faction linguistique</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">Le Havre-Harmonique</td>
+        <td>Français codé (EQ), Sinārabi</td>
+        <td>Fracturo (underground)</td>
+        <td>Alliance Sino-Sanaïte + cellule Tisserands</td>
+      </tr>
+      <tr>
+        <td class="name">Rouen-Neuromémoire</td>
+        <td>Français codé (EQ)</td>
+        <td>Vieux normand (glitches), CréoNeural (cave)</td>
+        <td>Europe Quantique / Archivistes</td>
+      </tr>
+      <tr>
+        <td class="name">Caen tripartite</td>
+        <td>Français codé (Caen-Neutre), Vieux normand (Caen-Fantôme)</td>
+        <td>Fracturo (Caen-Profonde), FracturoScript (Hackervölvas)</td>
+        <td>Mixte / Écho-Guillaume</td>
+      </tr>
+      <tr>
+        <td class="name">Bayeux / Cryptes Skaði</td>
+        <td>Vieux norrois (Skaði)</td>
+        <td>FracturoScript, Fracturo-Noir</td>
+        <td>Hackervölvas / Zone autonome</td>
+      </tr>
+      <tr>
+        <td class="name">Côte d'Albâtre / Étretat</td>
+        <td>Fracturo, Silence Parlant</td>
+        <td>Vieux norrois (pierres), proto-celtique (côte)</td>
+        <td>Prophètes du Vide / Sans-Marques</td>
+      </tr>
+      <tr>
+        <td class="name">Bocage Silencieux</td>
+        <td>Français rural non-codé</td>
+        <td>CréoNeural végétal (IA africaines), Fracturo</td>
+        <td>Sans-Marques / Triangle Africain</td>
+      </tr>
+      <tr>
+        <td class="name">Mont-Saint-Michel</td>
+        <td>CréoNeural, Gaélique normand ancien (Moine du Raz)</td>
+        <td>Toutes langues (zone neutre)</td>
+        <td>Triangle Africain / Neutre</td>
+      </tr>
+      <tr>
+        <td class="name">La Hague / Raz Blanchard</td>
+        <td>Patois de La Hague (Madame Lemarquis), Fracturo</td>
+        <td>Les 9 langues du Raz (6/9 identifiées), Proto-celtique</td>
+        <td>Enfants du Radium / Veilleurs de Pierre</td>
+      </tr>
+      <tr>
+        <td class="name">Omonville-la-Rogue</td>
+        <td>Toutes langues (superposition temporelle)</td>
+        <td>Langue du XIVe siècle (apparitions), Runes spontanées</td>
+        <td>Hors classification — anomalie de classe 3</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cite cite-violet">
+    <p>Dieu ne parle pas en binaire. Il murmure en Fracturo.</p>
+    <div class="src">— Sœur Algorithme, sermon du Solstice, Le Havre-Harmonique, 2074</div>
+  </div>
+
+  <!-- LE CONSEIL DES RÉALITÉS NORMANDES -->
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.05em;margin:2.5rem 0 1rem;color:var(--blanc)">Le Conseil des Réalités Normandes</h3>
+
+  <p>Face à l'ingérable convergence de forces, une structure de gouvernance informelle a émergé : le <strong>Conseil des Réalités Normandes</strong>.
+ Sept sièges. Aucune autorité légale. Aucun pouvoir coercitif. Et 
+pourtant, certaines décisions qui sortent de ses réunions annuelles 
+(solstice d'été, Allée Couverte de Vauville) semblent modifier la 
+réalité normande. Les décisions ne sont pas prises à la majorité — elles
+ émergent par <em>convergence des récits</em>. La réalité normande se plie à la narration la plus cohérente.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Siège</th>
+        <th>Représentant actuel</th>
+        <th>Allégeance</th>
+        <th>Langue(s)</th>
+        <th>Objectif</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">Siège de la Trame</td>
+        <td>Cdt. Aurore Leclerc</td>
+        <td style="color:var(--rouge)">Europe Quantique</td>
+        <td>Français codé</td>
+        <td>Stabiliser, contrôler, intégrer</td>
+      </tr>
+      <tr>
+        <td class="name">Siège de la Foi</td>
+        <td>Sœur Algorithme</td>
+        <td style="color:var(--or)">Alliance (hérétique)</td>
+        <td>Sinārabi + Fracturo</td>
+        <td>Convertir. Sanctuaire techno-soufi.</td>
+      </tr>
+      <tr>
+        <td class="name">Siège du Vivant</td>
+        <td>Délégué muet du Triangle</td>
+        <td style="color:var(--vert)">Triangle Africain</td>
+        <td>CréoNeural</td>
+        <td>Étendre les écosystèmes symbiotiques</td>
+      </tr>
+      <tr>
+        <td class="name">Siège de la Pierre</td>
+        <td>Madame Lemarquis</td>
+        <td style="color:var(--cyan)">Veilleurs / Völvas</td>
+        <td>Patois La Hague + FracturoScript</td>
+        <td>Préserver les mégalithes et les runes</td>
+      </tr>
+      <tr>
+        <td class="name">Siège du Silence</td>
+        <td>Le Berger de Craie</td>
+        <td style="color:var(--gris-texte)">Prophètes du Vide</td>
+        <td>Silence Parlant</td>
+        <td>Détruire la Trame. Rétablir le Vrai Réel.</td>
+      </tr>
+      <tr>
+        <td class="name">Siège de la Résistance</td>
+        <td>La Veuve (Caen)</td>
+        <td style="color:var(--blanc)">Sans-Marques</td>
+        <td>Français brut + fragments Voix de Rouen</td>
+        <td>Souveraineté organique normande</td>
+      </tr>
+      <tr>
+        <td class="name">Siège de l'Écho</td>
+        <td>Voix de Rouen (entité)</td>
+        <td style="color:var(--violet)">Rouen-Neuromémoire</td>
+        <td>Vieux normand + langues multiples</td>
+        <td>Exister. Comprendre sa propre nature.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <span class="logo">MKB — 44</span>
+    MEMETIKKRIEGBERICHTER44 · ARCHIVES CULTURELLES · NORMANDIE 2075<br>
+    Compilé par Archiviste Émile Deschamps — Rouen-Neuromémoire<br>
+    Classification Φ-ROUGE · Diffusion restreinte<br>
+    <span style="display:block;margin-top:1.5rem;font-size:1.8rem;color:rgba(255,255,255,0.03);letter-spacing:0.4em">ᚠ ᚢ ᚦ ᚬ ᚱ ᚴ</span>
+    <span style="color:rgba(200,168,75,0.25);font-size:0.55rem;letter-spacing:0.3em">DIEU NE PARLE PAS EN BINAIRE · IL MURMURE EN FRACTURO</span>
+  </div>
+</footer>
+
+
+
+</body></html>
