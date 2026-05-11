@@ -1,0 +1,276 @@
+{
+  "test_suite": {
+    "name": "FracturoScript Terminal Validation Suite",
+    "version": "v1.0.Δ",
+    "author": "Collectif MKB-44 / Archiviste Deschamps",
+    "description": "20 validated input/output pairs for automated testing of the Fracturo terminal. Covers system commands, ritual protocols, syntax parsing, metric drift, and edge cases aligned with Corpus Vauvillensis.",
+    "initial_state": {
+      "delta": 0.742,
+      "harmony": 0.71,
+      "coherence": 0.81,
+      "redundancy": 0.76,
+      "ghostline": false,
+      "trame_active": false,
+      "cmd_count": 0,
+      "anomalies": 0
+    },
+    "tests": [
+      {
+        "id": "SYS_01",
+        "input": "help",
+        "category": "system",
+        "match_type": "exact",
+        "expected_output": [
+          "COMMANDES DISPONIBLES :",
+          "  help, delta, loop, null, glow, dark, run [code], scan, bloodnet, lore, export, clear, reset, exit",
+          "⚠️ SYNTAXE AVANCÉE : Ω<rune>vN lieu — effet •••"
+        ],
+        "state_assertions": {"delta_change": 0.0, "harmony_change": 0.0, "ghostline_toggle": false},
+        "description": "Displays command reference guide"
+      },
+      {
+        "id": "SYS_02",
+        "input": "status",
+        "category": "system",
+        "match_type": "contains",
+        "expected_output": [
+          "[SYSTEME] Δ=0.742 | H=0.71 | C=0.81 | R=0.76",
+          "[RÉSEAU] GHOSTLINE: OFF | TRAME: NON | SESSION: MKB-44",
+          "[PROTOCOLE] H>0.6 requis pour compilation stable. Risque boucle si Δ>0.91."
+        ],
+        "state_assertions": {"delta_change": 0.0, "harmony_change": 0.0},
+        "description": "Read-only state dump"
+      },
+      {
+        "id": "SYS_03",
+        "input": "delta",
+        "category": "system",
+        "match_type": "contains",
+        "expected_output": [
+          "[CALCUL Δ...]",
+          "Δ recalibré. Gradient: Côte(0.12)→Bourg(0.74)→Bocage(0.58)",
+          "⚠️ Fenêtre critique: 02:14-02:22 UTC. Ne pas nommer Prométhée."
+        ],
+        "state_assertions": {"delta_recalc": true, "formula_applied": "Δ = 0.33·C + 0.33·R + 0.34·H"},
+        "description": "Recalculates Δ using Codex formula"
+      },
+      {
+        "id": "RIT_01",
+        "input": "loop",
+        "category": "ritual",
+        "match_type": "exact",
+        "expected_output": [
+          "[INITIALISATION <loop>]",
+          "Durée: 13m47s (Code #11) | Synchronisation collective...",
+          "✅ Boucle ancrée. H maintenu. Résonance 7.83 Hz détectée."
+        ],
+        "state_assertions": {"harmony_change": "+0.05", "delta_change": "0.0"},
+        "description": "Activates 13m47s temporal anchor loop"
+      },
+      {
+        "id": "RIT_02",
+        "input": "null",
+        "category": "ritual",
+        "match_type": "contains",
+        "expected_output": [
+          "[ACTIVATION <null>]",
+          "⚠️ SILENCE ONTOLOGIQUE | Purge bruit mémétique... OK | Isolement ghostline... OK",
+          "🌊 Le Vide ne répond qu'en silence. Mais ce silence te suit."
+        ],
+        "state_assertions": {"delta_change": "-0.15 (min 0.2)", "harmony_change": "0.0"},
+        "description": "Ontological silence protocol, reduces Δ"
+      },
+      {
+        "id": "RIT_03",
+        "input": "glow",
+        "category": "ritual",
+        "match_type": "contains",
+        "expected_output": [
+          "[ACTIVATION <glow>]",
+          "Lien communautaire renforcé | H↑ | Balise visible",
+          "« Ce qui émerge dans la lumière partagée résiste à la Trame. »"
+        ],
+        "state_assertions": {"harmony_change": "+0.08", "delta_change": "0.0"},
+        "description": "Community illumination, raises H"
+      },
+      {
+        "id": "RIT_04",
+        "input": "dark",
+        "category": "ritual",
+        "match_type": "contains",
+        "expected_output": [
+          "[INJECTION <dark>]",
+          "⚠️ Corruption simulée. Test de résilience actif."
+        ],
+        "state_assertions": {"delta_change": "-0.12", "harmony_change": "-0.06", "glitch_possible": true},
+        "description": "Simulated corruption, tests resilience"
+      },
+      {
+        "id": "NET_01",
+        "input": "scan",
+        "category": "network",
+        "match_type": "contains",
+        "expected_output": [
+          "[SCAN RÉSEAU]",
+          "> Ping Mégalithes... OK (ᚠ ᚢ ᚦ résonance)",
+          "> Détection Trame...",
+          "> Ghostline...",
+          "> Anomalies locales... "
+        ],
+        "state_assertions": {"delay_ms": 800, "anomaly_count_dynamic": true},
+        "description": "Territorial network ping with async delay"
+      },
+      {
+        "id": "NET_02",
+        "input": "bloodnet",
+        "category": "network",
+        "match_type": "exact",
+        "expected_output": [
+          "[BLOODNET] Connexion chiffrée établie...",
+          "> Serveurs biologiques: 3 actifs | 1 en stase | 0 corrompu",
+          "> Derniers fragments: \"main rouge... raz••• Ya Hu...\" | \"pommier marche. racines chantent.\"",
+          "⚠️ Session éphémère. Ne pas stocker."
+        ],
+        "state_assertions": {"state_change": 0.0},
+        "description": "Clandestine biological network check"
+      },
+      {
+        "id": "LORE_01",
+        "input": "lore",
+        "category": "lore",
+        "match_type": "regex",
+        "expected_output_pattern": "« .* » —? (Azenor|Sans-Marques|Codex|Léon Mauger|Inconnu)?$",
+        "state_assertions": {"state_change": 0.0, "random_seed_applied": true},
+        "description": "Random corpus fragment extraction"
+      },
+      {
+        "id": "EXP_01",
+        "input": "export",
+        "category": "export",
+        "match_type": "contains",
+        "expected_output": [
+          "[GÉNÉRATION PAYLOAD NARRATIF (ARTIFACT DIÉGÉTIQUE)]",
+          "⚠️ Ce script est un objet fictionnel. Aucune instruction exécutable réelle. Usage: JdR/ARG/immersion.",
+          "# ==========================================",
+          "# FRACTURO-TERMINAL // PAYLOAD NARRATIF vΩ"
+        ],
+        "state_assertions": {"state_change": 0.0, "payload_inert": true},
+        "description": "Generates fictional PowerShell artifact for JdR/ARG"
+      },
+      {
+        "id": "SYS_04",
+        "input": "clear",
+        "category": "system",
+        "match_type": "exact",
+        "expected_output": [],
+        "state_assertions": {"log_length": 0, "state_persistent": true},
+        "description": "Clears terminal log without resetting state"
+      },
+      {
+        "id": "SYS_05",
+        "input": "reset",
+        "category": "system",
+        "match_type": "exact",
+        "expected_output": [
+          "[RESET] Session MKB-44 réinitialisée. Δ stable."
+        ],
+        "state_assertions": {"delta": 0.742, "harmony": 0.71, "anomalies": 0, "trame_active": false},
+        "description": "Hard resets all metrics and session flags"
+      },
+      {
+        "id": "SYS_06",
+        "input": "exit",
+        "category": "system",
+        "match_type": "exact",
+        "expected_output": [
+          "⚠️ FERMETURE SESSION",
+          "Déconnexion ghostline... OK | Archivage local... OK",
+          "« Le Cercle est complet. Et vous y êtes maintenant. »"
+        ],
+        "state_assertions": {"input_disabled": true, "session_terminated": true},
+        "description": "Graceful session termination"
+      },
+      {
+        "id": "RUN_01",
+        "input": "run Ω<ansuz>v3 caen — mémoire vérité •••",
+        "category": "fracturo",
+        "match_type": "exact",
+        "expected_output": [
+          "[COMPILATION] Ω<ansuz>v3 caen — mémoire vérité •••",
+          "Vérification intention... H requis: 0.6 | H actuel: 0.71",
+          "✅ Compilation acceptée. Exécution différée (13m47s).",
+          "[EFFET] Mémoire vérité appliqué à caen. Δ stable."
+        ],
+        "state_assertions": {"cmd_count": "+1", "delta_change": "0.0"},
+        "description": "Valid Fracturo compilation with H>0.6"
+      },
+      {
+        "id": "RUN_02",
+        "input": "run Ω<isa>v1 raz — stase temporelle •••",
+        "category": "fracturo",
+        "match_type": "exact",
+        "expected_output": [
+          "[COMPILATION] Ω<isa>v1 raz — stase temporelle •••",
+          "Vérification intention... H requis: 0.6 | H actuel: 0.71",
+          "✅ Compilation acceptée. Exécution différée (13m47s).",
+          "[EFFET] Stase temporelle appliqué à raz. Δ stable."
+        ],
+        "state_assertions": {"cmd_count": "+1", "delta_change": "0.0"},
+        "description": "Valid ISA-family compilation"
+      },
+      {
+        "id": "RUN_03",
+        "input": "run Ω<kenaz>v2 hague purification •",
+        "category": "fracturo_syntax",
+        "match_type": "exact",
+        "expected_output": [
+          "[ERREUR SYNTAXIQUE] Format attendu: Ω<rune>vN lieu — effet •••"
+        ],
+        "state_assertions": {"cmd_count": "0", "state_change": 0.0},
+        "description": "Syntax error: missing fracture `—` and invalid `•` count"
+      },
+      {
+        "id": "RUN_04",
+        "input": "run Ω<odin>v4 rouen — révélation •••",
+        "category": "fracturo_security",
+        "precondition": {"harmony": 0.58},
+        "match_type": "exact",
+        "expected_output": [
+          "[COMPILATION] Ω<odin>v4 rouen — révélation •••",
+          "Vérification intention... H requis: 0.6 | H actuel: 0.58",
+          "❌ INTENTION INSUFFISANTE. Le Programme détecte l'ambivalence."
+        ],
+        "state_assertions": {"delta_change": "-0.05", "cmd_count": "0"},
+        "description": "Rejection due to low Harmonie intentionnelle (H<0.6)"
+      },
+      {
+        "id": "EDGE_01",
+        "input": "Ω<ansuz>v3 caen — test •••",
+        "category": "edge_case",
+        "match_type": "exact",
+        "expected_output": [
+          "[ERREUR ONTIQUE] Commande inconnue. Tapez help.",
+          "⚠️ La Trame surveille les tentatives de compilation hors protocole."
+        ],
+        "state_assertions": {"state_change": 0.0},
+        "description": "Missing `run` prefix triggers ontological error"
+      },
+      {
+        "id": "EDGE_02",
+        "input": "   ",
+        "category": "edge_case",
+        "match_type": "exact",
+        "expected_output": [],
+        "state_assertions": {"state_change": 0.0, "ignored": true},
+        "description": "Whitespace-only input should be silently ignored"
+      }
+    ],
+    "automation_notes": {
+      "html_stripping": "Terminal outputs contain <span> tags. Use innerText or DOMParser before assertion.",
+      "async_handling": "scan command uses 800ms setTimeout. Mock timers or use waitFor(timeout=1000ms).",
+      "state_drift": "After each test, apply state_assertions. Random drift (±0.02 H, ±0.01 C) occurs per command in production; mock Math.random() for deterministic runs.",
+      "regex_lore": "lore test uses pool of 7 fragments. Assert against known corpus array.",
+      "security": "export payload is inert text. Verify it contains NO eval(), exec(), or system calls."
+    }
+  }
+}
